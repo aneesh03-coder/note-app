@@ -16,7 +16,7 @@ export const registerUser=createAsyncThunk(
             },
         };
         try{
-            const endpoint=process.env.REACT_APP_REGISTRATION_ENDPOINT || `http://localhost:5001/api/users`;
+            const endpoint=process.env.REACT_APP_REGISTRATION_ENDPOINT || `/api/users`;
             const {data}=await axios.post(
                 endpoint,
                 {name,pic,email,password},

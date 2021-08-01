@@ -26,7 +26,7 @@ export const login=createAsyncThunk(
           "Content-Type": "application/json",
         },
       };
-      const endpoint=process.env.REACT_APP_LOGIN_ENDPOINT || `http://localhost:5001/api/users/login`;
+      const endpoint=process.env.REACT_APP_LOGIN_ENDPOINT || `/api/users/login`;
       const {data}=await axios.post(
         endpoint,
         {email,password},
@@ -72,8 +72,8 @@ export const updateProfile=createAsyncThunk(
             'Authorization':`Bearer ${userInfo.token}`,
             'Content-Type' : 'application/json; charset=UTF-8',
         },          
-    };
-    const endpoint=process.env.REACT_APP_UPDATE_PROFILE_ENDPOINT || `http://localhost:5001/api/users/profile`;
+    };const endpoint=process.env.REACT_APP_UPDATE_PROFILE_ENDPOINT || `/api/users/profile`;
+    
     const {data}=await axios.post(endpoint,user,config);
     localStorage.setItem("userInfo",JSON.stringify(data));
         return data;

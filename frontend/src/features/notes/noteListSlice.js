@@ -28,7 +28,7 @@ export const notesLists= createAsyncThunk(
               Authorization:`Bearer ${userInfo.token}`
           },
       };
-        const endpoint=process.env.REACT_APP_NOTESLIST_ENDPOINT || `http://localhost:5001/api/notes`;
+        const endpoint=process.env.REACT_APP_NOTESLIST_ENDPOINT || `/api/notes`;
         const {data}=await axios.get(endpoint,config)
         return data;
     }catch(err){
@@ -49,7 +49,7 @@ export const notesCreate=createAsyncThunk(
                 'Content-Type' : 'application/json; charset=UTF-8',
             },
         };
-        const endpoint=process.env.REACT_APP_NOTESCREATE_ENDPOINT || `http://localhost:5001/api/notes/create`;
+        const endpoint=process.env.REACT_APP_NOTESCREATE_ENDPOINT || `/api/notes/create`;
           const {data}=await axios.post(endpoint,{
             title:title,content:content,category:category},config);
           return data;
@@ -72,7 +72,7 @@ export const updateNotes=createAsyncThunk(
               'Content-Type' : 'application/json; charset=UTF-8',
           },          
       };
-      const endpoint=process.env.REACT_APP_NOTESUPDATE_ENDPOINT || `http://localhost:5001/api/notes/`;
+      const endpoint=process.env.REACT_APP_NOTESUPDATE_ENDPOINT || `/api/notes/`;
       const {data}=await axios.put(`${endpoint}${id}`,{
             title:title,content:content,category:category},config);
           return data;
@@ -95,7 +95,7 @@ export const deleteNotes=createAsyncThunk(
             
         },          
     };
-    const endpoint=process.env.REACT_APP_NOTESDELETE_ENDPOINT || `http://localhost:5001/api/notes/`;
+    const endpoint=process.env.REACT_APP_NOTESDELETE_ENDPOINT || `/api/notes/`;
     const {data}=await axios.delete(`${endpoint}${id}`,
           config);
         return data;
