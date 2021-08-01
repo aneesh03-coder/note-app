@@ -25,7 +25,7 @@ const MyNotes = ({search}) => {
          if(!userInfo){
              history.push("/")
          }  
-         if(deleteNoteError === "Not authorized,token failed" || createNoteError === "Not authorized,token failed" || updateNoteError === "Not authorized,token failed"){
+         if(deleteNoteError === "Not authorized,token failed" || createNoteError === "Not authorized,token failed" || updateNoteError === "Not authorized,token failed" || error === "Not authorized,token failed"){
              
              dispatch(loggingOut());
              dispatch(resetError());

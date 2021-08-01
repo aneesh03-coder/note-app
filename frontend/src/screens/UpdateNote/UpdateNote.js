@@ -27,7 +27,8 @@ const UpdateNote = ({match,history}) => {
                     Authorization:`Bearer ${userInfo.token}`
                 },
             };
-            const {data} = await axios.get(`http://192.168.1.119:5001/api/notes/${match.params.id}`,config);
+            const endpoint=process.env.REACT_APP_UPDATE_GET_NOTE_ENDPOINT || `http://localhost:5001/api/notes/`;
+            const {data} = await axios.get(`${endpoint}${match.params.id}`,config);
 
             setTitle(data.title);
             setContent(data.content);

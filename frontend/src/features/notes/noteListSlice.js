@@ -28,7 +28,8 @@ export const notesLists= createAsyncThunk(
               Authorization:`Bearer ${userInfo.token}`
           },
       };
-        const {data}=await axios.get(`http://192.168.1.119:5001/api/notes`,config)
+        const endpoint=process.env.REACT_APP_NOTESLIST_ENDPOINT || `http://localhost:5001/api/notes`;
+        const {data}=await axios.get(endpoint,config)
         return data;
     }catch(err){
       const message=err.response && err.response.data.message ? err.response.data.message  :  err.message;
@@ -48,7 +49,8 @@ export const notesCreate=createAsyncThunk(
                 'Content-Type' : 'application/json; charset=UTF-8',
             },
         };
-          const {data}=await axios.post(`http://192.168.1.119:5001/api/notes/create`,{
+        const endpoint=process.env.REACT_APP_NOTESCREATE_ENDPOINT || `http://localhost:5001/api/notes/create`;
+          const {data}=await axios.post(endpoint,{
             title:title,content:content,category:category},config);
           return data;
       }catch(err){
@@ -70,7 +72,8 @@ export const updateNotes=createAsyncThunk(
               'Content-Type' : 'application/json; charset=UTF-8',
           },          
       };
-      const {data}=await axios.put(`http://192.168.1.119:5001/api/notes/${id}`,{
+      const endpoint=process.env.REACT_APP_NOTESUPDATE_ENDPOINT || `http://localhost:5001/api/notes/`;
+      const {data}=await axios.put(`${endpoint}${id}`,{
             title:title,content:content,category:category},config);
           return data;
     }catch(err){
@@ -92,7 +95,8 @@ export const deleteNotes=createAsyncThunk(
             
         },          
     };
-    const {data}=await axios.delete(`http://192.168.1.119:5001/api/notes/${id}`,
+    const endpoint=process.env.REACT_APP_NOTESDELETE_ENDPOINT || `http://localhost:5001/api/notes/`;
+    const {data}=await axios.delete(`${endpoint}${id}`,
           config);
         return data;
     }catch(err){
