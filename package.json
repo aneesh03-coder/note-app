@@ -10,7 +10,8 @@
     "heroku-postbuild":"npm run install-client && npm run build",
     "server": "nodemon backend/index.js",
     "client": "npm start --prefix frontend",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "start":"node backend/index.js"
   },
   "author": "Aneesh Kalra",
   "license": "ISC",
