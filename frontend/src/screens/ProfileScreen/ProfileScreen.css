@@ -1,0 +1,35 @@
+img{
+    height:310px;
+    width:350px;
+    object-fit:cover;
+    border-radius:20px;
+}
+.picContainer{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+  .profileContainer {
+    display: flex;
+    margin: 20px;
+  }
+
+  @media only screen and (max-width: 768px) {
+    .profileContainer {
+      flex-direction: column-reverse;
+    }
+    .picContainer{
+        align-items: left;
+        justify-content:flex-start;
+    }
+    .formContainer-1{
+        padding:20px;
+    }
+    img{
+      height:280px;
+      width:320px;
+      object-fit:cover;
+    }
+  
+  }
