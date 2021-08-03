@@ -54,9 +54,11 @@ const UpdateNote = ({match,history}) => {
     const updateHandler=(e)=>{
         e.preventDefault();
         if(!title || !content || !category) return;
-        dispatch(updateNotes({id:match.params.id,title,content,category}))
-        resetHandler();
+        dispatch(updateNotes({id:match.params.id,title,content,category})).then(()=>{
+            resetHandler();
         history.push("/mynotes");
+        })
+        
     }
 
     return (
